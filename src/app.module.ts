@@ -5,6 +5,10 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { JwtMiddleware } from './usuarios/auth/middlewares/jwt/jwt.middleware';
+import { DeptosModule } from './deptos/deptos.module';
+import { ParcelasModule } from './parcelas/parcelas.module';
+import { IngresosModule } from './ingresos/ingresos.module';
+import { ReservasModule } from './reservas/reservas.module';
 
 @Module({
   imports: [
@@ -21,6 +25,10 @@ import { JwtMiddleware } from './usuarios/auth/middlewares/jwt/jwt.middleware';
       synchronize: true, //!Realiza las migraciones de las tablas automaticamente
     }),
     UsuariosModule,
+    DeptosModule,
+    ParcelasModule,
+    IngresosModule,
+    ReservasModule,
   ],
   controllers: [AppController],
   providers: [AppService],
