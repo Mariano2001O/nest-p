@@ -34,4 +34,5 @@ export class IngresosController {
     return result
 }
 async update(){ }
+
 }
