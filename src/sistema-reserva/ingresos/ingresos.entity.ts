@@ -1,4 +1,4 @@
-import { Parcela } from "src/parcelas/parcelas.entity";
+import { Parcela } from "src/sistema-reserva/parcelas/parcelas.entity";
 import { Usuarios } from "src/usuarios/usuarios.entity";
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 

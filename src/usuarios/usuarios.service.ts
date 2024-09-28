@@ -48,4 +48,43 @@ export class UsuariosService {
             throw new HttpException(err.message, err.status);
         }
     }
+
+    async getAll(): Promise<UsuarioDto[]> {
+        try {
+            const usuarios = await this.repo.find();
+
+            if (!usuarios) throw new NotFoundException('Usuario no encontrado');
+
+            return usuarios;
+        } catch (err) {
+            console.error(err);
+            if (err instanceof QueryFailedError)
+                throw new HttpException(`${err.name} ${err.driverError}`, 404);
+            throw new HttpException(err.message, err.status);
+        }
+    }
+    async login(email: string, password: string) {
+        try {
+            const user = await this.repo.findOne({ where: { email } });
+            console.log(user);
+
+            if (!user) throw new NotFoundException('Usuario no encontrado');
+
+            const isPassword = await this.authService.comparePassword(
+                password,
+                user.password,
+            );
+
+            if (!isPassword) throw new UnauthorizedException('Contraseña incorrecta');
+
+            const token = await this.authService.generateJwt(user);
+
+            return token;
+        } catch (err) {
+            console.error(err);
+            if (err instanceof QueryFailedError)
+                throw new HttpException(`${err.name} ${err.driverError}`, 404);
+            throw new HttpException(err.message, err.status);
+        }
+    }
 }

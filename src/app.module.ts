@@ -5,10 +5,10 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { JwtMiddleware } from './usuarios/auth/middlewares/jwt/jwt.middleware';
-import { DeptosModule } from './deptos/deptos.module';
-import { ParcelasModule } from './parcelas/parcelas.module';
-import { IngresosModule } from './ingresos/ingresos.module';
-import { ReservasModule } from './reservas/reservas.module';
+import { DeptosModule } from './sistema-reserva/deptos/deptos.module';
+import { ParcelasModule } from './sistema-reserva/parcelas/parcelas.module';
+import { IngresosModule } from './sistema-reserva/ingresos/ingresos.module';
+import { ReservasModule } from './sistema-reserva/reservas/reservas.module';
 
 @Module({
   imports: [

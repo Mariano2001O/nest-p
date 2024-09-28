@@ -1,5 +1,5 @@
 import { IsDate, IsOptional } from "class-validator";
-import { ParcelasDto } from "src/parcelas/parcelas.dto";
+import { ParcelasDto } from "src/sistema-reserva/parcelas/parcelas.dto";
 import { UsuarioDto } from "src/usuarios/usuarios.dto";
 
 export class IngresoDto {

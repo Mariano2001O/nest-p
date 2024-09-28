@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity('parcelas')
+@Entity('parcela')
 export class Parcela {
     @PrimaryGeneratedColumn('increment')
     id: number;
@@ -8,5 +8,6 @@ export class Parcela {
     @Column({ type: 'varchar', nullable: true })
     nombre: string;
 
-    //definir precio
+    @Column({ type: 'boolean' })
+    ocupada: boolean;
 }
